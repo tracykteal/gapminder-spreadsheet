@@ -50,25 +50,29 @@ connected to it for it to stand on its own.
 2. You must make it clear to the computer how the data cells relate to the
 relevant information and each other.
 
-For instance we have data from the Sydney museum on all the objects in
-its collection. They keep track of things like the object's name,
-registration ID, provenance and size.
+For instance we have date from the Gapminder dataset. They have information
+on things for each country in each year like the GDP, population and life expectancy.
 
-[http://www.powerhousemuseum.com/collection/database/download.php](http://www.powerhousemuseum.com/collection/database/download.php)
+[http://www.gapminder.org/data/](http://www.gapminder.org/data/)
 
-If they were to store the data about the object's size like this
+Let's go to that web site and search for 'life expectancy'. On the "Life expectancy at birth, with projections"
+click on 'View'. We can see the life expectancy for each country for each year.
 
-![multiple data in cells](messy1.png)
+This is great, until we think about wanting to compare say life expectancy with GDP. We want the data
+to be together, so what do we do, put life expectancy and GDP in the same cell for country and year.
+What if we wanted to add more values. This won't scale particularly well.
 
-the problem is that height, width and depth are all in one field. So, if
-wanted to look for an object to put in a new area of the museum that's less
-than 1200mm wide, we would have a hard time searching the data to find this.
-If instead we put height, width and depth in different columns, you can see
-that it would be much easier.
+![messy data](fig/life-exp-messy.png)
 
+Let's actually download that life expectancy data and open it in a spreadsheet program. We still see the same
+formatting, but let's look at the tabs. A good thing that is done with this data is the About tab. It has the
+information about how this data was collected and measured and units of measurement. This is the metadata
+for the data, and it's a very important component. This life expectancy data could be meaningless if we didn't
+know how it was measured, or if it was measured in months instead of years.
 
-So, you can see how these points apply directly to how you set up your
-spreadsheets.
+It's important to consider this metadata when you're evaluating existing data, and especially when you're collecting
+your own data, making sure to keep track of this information, both for someone else who might use your data,
+but also for the you of 6 months from now who won't remember what you did.
 
 ###Columns for variables and rows for observations
 
@@ -77,24 +81,28 @@ rows = observations, cells=data (values).
 
 So, instead we should have
 
-![clean data](clean1.png)
+![clean data](fig/life-exp-clean.png)
 
-
+We can see that now we can add new types of data to this file.
 
 ### Exercise
 
-We're going to take a messy version of the Syndney museum collection data
+We're going to take a messy version of the Gapminder datasets
 and clean it up.
 
-- Download the data by clicking on the file:  
-[phm-collection-messy.xls](phm-collection-messy.xls)
+- Download the data in the data package for this workshop
+[gapminder-datacarpentry](http://teckla.idyll.org/~tracyt/transfer/gapminder-datacarpentry.zip)
 
-- Open up the data in a spreadsheet program
+- Unzip the directory
 
-- You can see that there are two tabs. Two curators logged the objects, one in the 1990s and one in the 2000s and they both kept track of the data in their own way. Now you're the new curator and you've been handed this information, and the museum director wants statistics on the number of each type of object in the collection and when they were acquired.
+- Open up the data file gapminder-messy.xlsx in a spreadsheet program
+
+- You can see that there are multiple tabs. Different organizations collected the data and they did it in
+different ways. Now you've been handed this information and Janet Yellen wants statistics on the relationship
+between GDP and population for setting policy.
 
 - With the person next to you, work on the messy data to clean it up so
-that a computer will be able to understand it.
+that a computer will be able to understand it. Just do it for the countries that start with 'A' for 1952 and 1953.
 
 After you go through this exercise, we'll discuss as a group what you think was wrong with this data organization and how you fixed it.  
 
